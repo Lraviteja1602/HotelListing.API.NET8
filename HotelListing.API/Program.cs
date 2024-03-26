@@ -1,6 +1,17 @@
+using HotelListing.API.Data;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// DB Connection 
+
+var connstr = builder.Configuration.GetConnectionString("HotelListingDBConn");
+builder.Services.AddDbContext<HotelListingDbContext>(options => 
+    options.UseSqlServer(connstr));
+
+//builder.Services.AddDbContext<HotelListingDbContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("HotelListingDBConn")));
 
 // Add services to the container.
 
