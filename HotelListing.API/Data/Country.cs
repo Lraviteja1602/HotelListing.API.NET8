@@ -8,7 +8,6 @@
 
         public string ShortName { get; set; }
 
-
         public virtual ICollection<Hotel>? Hotels { get; set; }
     }
 }
